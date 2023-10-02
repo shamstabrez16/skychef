@@ -1,14 +1,22 @@
-import logo from './logo.svg';
+import { Fragment } from 'react';
 import './App.css';
+import Header from './components/Layout/Header';
+import Meals from './components/Meals/Meals';
+import Cart from './components/Cart/Cart';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        {/* <img src={logo} className="App-logo" alt="logo" /> */}
-       <h2>Let's Get Started</h2>
-      </header>
-    </div>
+    <Fragment>
+      
+        <Header></Header>
+        <main>
+        <Meals/>
+        <Cart></Cart>
+      
+        </main>
+        
+    </Fragment>
   );
 }
 
