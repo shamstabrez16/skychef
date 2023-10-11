@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/skychef/static/css/main.9dbaad1e.css",
-    "main.js": "/skychef/static/js/main.d44e5933.js",
+    "main.css": "/skychef/static/css/main.0abc68a2.css",
+    "main.js": "/skychef/static/js/main.ba5dbf68.js",
     "static/js/787.da767e73.chunk.js": "/skychef/static/js/787.da767e73.chunk.js",
     "static/media/meals.jpg": "/skychef/static/media/meals.2971f633fc1382581cbf.jpg",
     "index.html": "/skychef/index.html",
-    "main.9dbaad1e.css.map": "/skychef/static/css/main.9dbaad1e.css.map",
-    "main.d44e5933.js.map": "/skychef/static/js/main.d44e5933.js.map",
+    "main.0abc68a2.css.map": "/skychef/static/css/main.0abc68a2.css.map",
+    "main.ba5dbf68.js.map": "/skychef/static/js/main.ba5dbf68.js.map",
     "787.da767e73.chunk.js.map": "/skychef/static/js/787.da767e73.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.9dbaad1e.css",
-    "static/js/main.d44e5933.js"
+    "static/css/main.0abc68a2.css",
+    "static/js/main.ba5dbf68.js"
   ]
 }
