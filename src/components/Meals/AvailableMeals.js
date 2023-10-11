@@ -1,36 +1,61 @@
-import Card from '../UI/Card';
-import MealItem from './MealItem/MealItem';
-import classes from './AvailableMeals.module.css';
-
-const DUMMY_MEALS = [
-  {
-    id: 'm1',
-    name: 'Sushi',
-    description: 'Finest fish and veggies',
-    price: 22.99,
-  },
-  {
-    id: 'm2',
-    name: 'Schnitzel',
-    description: 'A german specialty!',
-    price: 16.5,
-  },
-  {
-    id: 'm3',
-    name: 'Barbecue Burger',
-    description: 'American, raw, meaty',
-    price: 12.99,
-  },
-  {
-    id: 'm4',
-    name: 'Green Bowl',
-    description: 'Healthy...and green...',
-    price: 18.99,
-  },
-];
+import Card from "../UI/Card";
+import MealItem from "./MealItem/MealItem";
+import classes from "./AvailableMeals.module.css";
+import { useEffect, useState } from "react";
 
 const AvailableMeals = () => {
-  const mealsList = DUMMY_MEALS.map((meal) => (
+  const [meals, setMeals] = useState([]);
+
+  const [isLoading, setIsLoading]= useState(true);
+  const [hasHttpError,setHasHttpError] = useState(null);
+
+  useEffect(() => {
+    const fetchMeals = async () => {
+      setIsLoading(true);
+      try {
+        const response = await fetch(
+          "https://meals-http-365f3-default-rtdb.firebaseio.com/meals.json"  // added ".json" to the URL
+        );
+        if (!response.ok) {
+          throw new Error("Failed to fetch meals.");
+        }
+        const data = await response.json();
+        const loadedMeals = [];
+        for (const key in data) {
+          loadedMeals.push({
+            id: key,
+            name: data[key].name,
+            description: data[key].description,
+            price: data[key].price,
+          });
+        }
+        setMeals(loadedMeals);
+        setIsLoading(false);
+        console.log("Fetched meals:", data);
+      } catch (error) {
+        setIsLoading(false);
+        setHasHttpError(error.message+" Error fetching meals. Please try again."); // Set the error message here
+      }
+    };
+  
+    fetchMeals();
+  }, []);
+
+  if(isLoading){
+return <section className={classes.MealsLoading}>
+  <p>loading...</p> 
+</section>
+  }
+
+  if (hasHttpError) {
+    return (
+      <section className={classes.MealsError}>
+        <p>{hasHttpError}</p>
+      </section>
+    );
+  }
+
+  const mealsList = meals.map((meal) => (
     <MealItem
       key={meal.id}
       id={meal.id}
