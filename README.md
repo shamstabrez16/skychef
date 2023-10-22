@@ -4,6 +4,7 @@
 
 ## How to Deploy / publish a React App on GitHub Pages for FREE : Quick and Easy step by step Tutorial
 [Youtube](https://www.youtube.com/watch?v=zkro3JFGGiU&t=27s&ab_channel=ShamsTabrez)
+https://www.youtube.com/watch?v=zkro3JFGGiU&t=27s&ab_channel=ShamsTabrez
 
 https://shamstabrez16.github.io/skychef/
 
